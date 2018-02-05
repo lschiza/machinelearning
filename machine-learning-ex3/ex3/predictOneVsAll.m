@@ -30,11 +30,17 @@ X = [ones(m, 1) X];
 %       for each row.
 %       
 
+hypothesis = sigmoid(X*all_theta');
 
 
+%trying loop implementation - works! Let's make it more efficient with vector!
+%for row =1:m
+%	[maxPerRow, prediction] = max(hypothesis(row,:));
+%	p(row) = prediction;
+%end
 
-
-
+%vectorized now!
+[maxvalues, p] = max(hypothesis,[],2); %this returns the actual max values plus the predictions
 
 % =========================================================================
 

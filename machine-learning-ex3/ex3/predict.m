@@ -22,13 +22,22 @@ p = zeros(size(X, 1), 1);
 %
 
 
+a1 = X;
+a1bias = ones(m,1);
+a1  = [a1bias a1];	%add a0
 
+%hidden layer calculation begins
+z2 = a1*Theta1';
+a2 = sigmoid(z2);
 
+a2bias = ones(m,1);
+a2 = [a2bias a2];	%add a0(2)
 
+%output layer calculation begins
+z3 = a2*Theta2';
+a3 = sigmoid(z3);
 
-
-
-
+[maxValues p] = max(a3, [], 2);
 % =========================================================================
 
 
