@@ -31,6 +31,7 @@ J = (1/(2*m))*sum(errorSqr) + (lambda / (2*m)) * sum(theta .^2);
 
 
 %Gradient descent calculation
+grad = (1/m)*(X'*error) + (lambda/m)*theta;
 
 
 
