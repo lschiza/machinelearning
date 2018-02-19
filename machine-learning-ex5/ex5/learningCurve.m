@@ -53,12 +53,23 @@ error_val   = zeros(m, 1);
 
 % ---------------------- Sample Solution ----------------------
 
+%learning theta on the entire training set
 
 
+%calculating training error on entire training set so I have to get a new theta by iterating through all m training 
+%examples. After getting a new theta, I calculate error_train for each training example in X and Y
+%Then for every theta vector I get I need to opbaint error_val for the entire Validation data set
 
+for i = 1:m
+	%get new theta for each training example
+	theta = trainLinearReg(X(1:i,:), y(1:i), lambda);
 
+	%get the training error for every new theta against each training example
+	error_train(i)  = linearRegCostFunction(X(1:i,:), y(1:i), theta, 0);
 
-
+	%for every new vector theta, get validation error against engire Validation training set
+	error_val(i)  = linearRegCostFunction(Xval, yval, theta, 0); 
+end
 % -------------------------------------------------------------
 
 % =========================================================================
